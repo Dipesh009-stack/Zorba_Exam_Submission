@@ -3,18 +3,20 @@ package org.zorba.entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import org.hibernate.annotations.Cascade;
 
 @Entity
 @Table(name="student")
 @Getter
 @Setter
+@ToString
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer student_id;
 
-    @Column(name="studnet_name")
+    @Column(name="student_name")
     private String studentName;
 
     @Column(name= "location")
