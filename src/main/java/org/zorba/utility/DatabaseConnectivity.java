@@ -9,9 +9,10 @@ import org.zorba.entity.Teacher;
 public class DatabaseConnectivity {
     public static SessionFactory createSession() {
         Configuration configuration = new Configuration().configure("hibernate.cfg.xml");
-        SessionFactory sessionFactory = configuration.buildSessionFactory();
         configuration.addAnnotatedClass(Student.class);
         configuration.addAnnotatedClass(Teacher.class);
+
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
         System.out.println("Connection Established");
 
         return sessionFactory;
