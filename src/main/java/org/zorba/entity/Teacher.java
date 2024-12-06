@@ -34,6 +34,6 @@ public class Teacher {
     @Column(name= "address")
     private String address;
 
-//    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
-//    private Set<Student> students;
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Student> students;
 }
