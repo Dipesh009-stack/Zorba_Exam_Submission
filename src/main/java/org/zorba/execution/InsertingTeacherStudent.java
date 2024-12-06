@@ -10,6 +10,7 @@ import org.zorba.utility.ReadStudentExcelFile;
 import org.zorba.utility.ReadTeacherExcelFile;
 
 import java.util.List;
+import java.util.Set;
 
 public class InsertingTeacherStudent {
     public static void main(String[] args) {
@@ -17,15 +18,16 @@ public class InsertingTeacherStudent {
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         List<Teacher> listTeacher = ReadTeacherExcelFile.readTeacher();
-        List<Student> listStudent = ReadStudentExcelFile.readStudent();
-        for(Student x :listStudent ){
-            System.out.println(x);
-        }
+        Set<Student> setStudent = ReadStudentExcelFile.readStudent();
+
 
         try{
             tx = session.beginTransaction();
             for(Teacher te : listTeacher){
                 session.persist(te);
+             for(Student st : listStudent){
+                 session.persist(st);
+             }
             }
             tx.commit();
         } catch (Exception e) {

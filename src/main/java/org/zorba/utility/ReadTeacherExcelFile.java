@@ -28,6 +28,7 @@ public class ReadTeacherExcelFile {
             teacher.setMobile((long)row.getCell(3).getNumericCellValue());
             teacher.setAddress(row.getCell(4).getStringCellValue());
             teachers.add(teacher);
+            teacher.setStudents(ReadStudentExcelFile.readStudent());
         }
 
     }

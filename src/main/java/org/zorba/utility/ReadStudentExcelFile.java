@@ -10,11 +10,13 @@ import org.zorba.entity.Teacher;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ReadStudentExcelFile {
-    public static List<Student> readStudent(){
-        List<Student> students = new ArrayList<>();
+    public static Set<Student> readStudent(){
+        Set<Student> students = new HashSet<>();
         System.out.println(students);
         try{
             File file = new File("/Users/dipeshwosti/IdeaProjects/Zorba_Exam_Submission/HibernateAssignment/src/main/resources/education_systems.xlsx");
@@ -22,15 +24,8 @@ public class ReadStudentExcelFile {
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sheet = workbook.getSheet("Student_info");
             for(Row row : sheet ){
-                if(row.getRowNum()==0) continue;
-                Student student = new Student();
-                student.setStudentName(row.getCell(0).getStringCellValue());
-                student.setLocation(row.getCell(1).getStringCellValue());
-                student.setCourse(row.getCell(2).getStringCellValue());
-                student.setEmail(row.getCell(3).getStringCellValue());
-                student.setMobile((long)row.getCell(4).getNumericCellValue());
-                student.setScore((int)row.getCell(6).getNumericCellValue());
-                students.add(student);
+
+                students.add( students);
             }
 
         }
